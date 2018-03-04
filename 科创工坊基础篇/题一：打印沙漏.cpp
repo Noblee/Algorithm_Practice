@@ -1,79 +1,30 @@
 #include <iostream>
-#include <cstring>
+#include <cmath>
 
 using namespace std;
-string s[1000];  //存放每行输出的*号 
-//打印对称*号 
-int Print_stars(int a,char b)
-{
-    int i,j,k=0,t=0,tmp;
-	for(i=a;i>=1;i=i-2)
-	{	
-	    tmp=t;	
-		j=i;
-		while(tmp--)
-		{
-		  s[k]+=' ';
-		}
-		while(j--)
-		{
-			s[k]+=b;
-		}
-		k++;
-		t++;
-	}
-	t--;
-	t--;
-	if(a>=3)
-	{
-		for(i=3;i<=a;i=i+2)
-	{
-		tmp=t;
-		j=i;
-		while(tmp--)
-		{
-		  s[k]+=' ';
-		}
-		while(j--)
-		{
-			s[k]+=b;
-		}
-		k++;
-		t--;
-	}	
-	}
-	return k;
+
+int print_star(int num, char c) {
+    int n = (int) sqrt((num+1) / 2.0);
+    for (int i = n; i > 0; i--, printf("\n")) {
+        for (int j = 0; j < (n - i); j++)
+            printf(" ");
+        for (int j = 0; j < 2 * i - 1; j++)
+            printf("%c", c);
+    }
+    for (int i = 2; i <= n; i++, printf("\n")) {
+        for (int j = 0; j < (n - i); j++)
+            printf(" ");
+        for (int j = 0; j < 2 * i - 1; j++)
+            printf("%c", c);
+    }
+    return num - 2 * n * n + 1;
 }
 
-int main()
-{
-	int n,m,i,j,k,tmp;
-	char c;
-	while(cin>>n>>c)
-	{
-		tmp=1;
-		for(i=3;;i=i+2)
-		{
-			tmp+=2*i;
-			if(tmp>=n) break;
-		}
-		if(tmp==n)
-		{
-		  m=Print_stars(i,c);
-		  for(i=0;i<m;i++)
-		 cout<<s[i]<<endl;	
-		}
-		else
-		{
-		 j=i-2;	
-		 m=Print_stars(j,c);
-		 for(i=0;i<m;i++)
-		      cout<<s[i]<<endl;	
-		 cout<<n-tmp+2*(j+2)<<endl;
-		}
-		//清空字符串 
-		for(i=0;i<m;i++)
-           s[i].clear();		 
-	}
-	return 0;
+int main() {
+    int i;
+    char c;
+        cin >> i >> c;
+        cout << print_star(i, c);
+        cout<<endl;
+    return 0;
 }

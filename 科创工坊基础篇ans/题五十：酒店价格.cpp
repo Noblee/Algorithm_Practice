@@ -33,10 +33,10 @@ int main()
     int E=a[0].end;
 	for(i=0;i<n;i++)
 	{
-		if(a[i].end>=a[i+1].begin-1 && a[i].price==a[i+1].price)
-		{
-			E=a[i+1].end;   
-			continue;      
+            if(a[i].end>=a[i+1].begin-1 && a[i].price==a[i+1].price)
+            {
+                E=a[i+1].end;
+                continue;
 		}
 		if(a[i].end==a[i+1].begin && a[i].price!=a[i+1].price) 
 		{
