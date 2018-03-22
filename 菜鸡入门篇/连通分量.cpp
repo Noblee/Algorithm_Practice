@@ -4,6 +4,8 @@
 //题目:
 //http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_11_D
 //Summary
+//连通分量的原理很简单，对于非连通图生成连通森林，原理就是对每个节点(没有标记颜色的)
+//进行DFS，并对搜索到的节点标记id
 //using namespace std;
 std::vector<int> rela[100002];
 int color[100002];

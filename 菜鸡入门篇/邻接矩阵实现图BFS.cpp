@@ -4,9 +4,9 @@
 //题目:
 //http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_11_C
 //Summary
-//BFS的应用，求从某一节点开始到达所有节点的最短路径。
-//BFS通过单向队列来实现，
-//当然只跟包含给定节点的连通分量有关，所以只需要对该节点做BFS
+//BFS的应用，求从某一节点开始到达所有节点的最短路径。（最少步数）
+//BFS通过单向队列来实现
+//一般认为是连通图。
 using namespace std;
 #define white 0
 #define black 2

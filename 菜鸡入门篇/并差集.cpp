@@ -2,9 +2,13 @@
 // Created by Noble on 22/02/2018.
 //
 #include <iostream>
-
-int main()
+#include <algorithm>
+using namespace std;
+struct Node
 {
 
+};
+int main()
+{
     return 0;
 }
