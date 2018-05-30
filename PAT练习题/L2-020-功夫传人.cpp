@@ -6,8 +6,12 @@
 #include<cmath>
 
 using namespace std;
-int rel[100000];
-vector<int> ans;
+int rel[100005];
+struct Node
+{
+    int num ,magnify;
+};
+vector<Node> ans;
 int main() {
     int n;
     double r_start, reduce;
@@ -25,15 +29,21 @@ int main() {
         } else {
             int temp;
             cin>>temp;
-            rel[temp]=i;
-            ans.push_back(i);
+            Node node;
+            node.magnify=temp;
+            node.num=i;
+            ans.push_back(node);
         }
     }
     double sum = 0;
     for (int i = 0; i < ans.size(); i++) {
-        int counts=1;
-        int p=ans[i];
 
+        int counts;
+        int p=ans[i].num;
+        if(rel[p]==0)
+            counts=0;
+        else
+            counts=1;
         while(1)
         {
             if(rel[p]!=0)
@@ -42,8 +52,8 @@ int main() {
                 break;
             p=rel[p];
         }
-        sum+=rel[ans[i]]*r_start*pow(1-reduce,counts);
+        sum+=ans[i].magnify*r_start*pow(1-reduce,counts);
     }
-    printf("%lf",sum);
+    printf("%d",(int)sum);
     return 0;
 }

@@ -61,7 +61,7 @@ void dfs(map<int, Node>::iterator  it) {
 
     Node &nd = it->second;
     if(nd.search==true)
-        return;0
+        return;
     as.p_num++;
     nd.search = true;
     as.size += nd.total_size;
